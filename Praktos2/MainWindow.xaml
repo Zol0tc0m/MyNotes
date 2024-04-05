@@ -1,0 +1,60 @@
+﻿<Window x:Class="Praktos2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Praktos2"
+        mc:Ignorable="d"
+        Title="Ежедневник" Height="500" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <DatePicker x:Name="DatePicker" Grid.ColumnSpan="2" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <Button x:Name="DeleteNote" Content="Удалить заметку" Grid.Column="2" Grid.Row="6" Click="Note_Delete" RenderTransformOrigin="1,1"/>
+        <TextBox Text = "Заголовок заметки: "  Grid.Column="0" Grid.Row="1" IsEnabled="False"/>
+        <TextBox Text = "Текст заметки: "  Grid.Column="0" Grid.Row="2" IsEnabled="False"/>
+        <Grid Grid.Row="7" Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="SaveNote" Content="Сохранить заметку" Grid.Column="0" Grid.Row="7" Click="Note_Save" RenderTransformOrigin="1,0">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="AddNote" Content="Добавить заметку" Grid.Column="1" Grid.Row="7" Click="Note_Add"/>
+        </Grid>
+
+        <TextBox Name="HeadingNote" Text = ""  Grid.Column="1" Grid.Row="1"/>
+        <TextBox Name="TextNote" Text = ""  Grid.Column="1" Grid.Row="2" Grid.RowSpan="4"/>
+        <ListBox x:Name="ToDoList" Grid.Column="0" Grid.Row="4" Grid.RowSpan="4">
+        </ListBox>
+        <TextBox Text = "Список ваших заметок:" Grid.Column="0" Grid.Row="3" IsEnabled="False"/>
+    </Grid>
+</Window>
